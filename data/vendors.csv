@@ -1,0 +1,9 @@
+# DEMO DATASET: Punjab Sports Mart - Vendor Registry
+vendor_id,vendor_name,category,contact_person,phone,email,lead_time_days,sla_rating
+VEND-001,SG Cricket India Ltd,CRICKET,Rajesh Sharma,+91-9876543210,orders@sgcricket.demo,3,4.8
+VEND-002,Sunrise Sports (Yonex),BADMINTON,Pooja Verma,+91-9876543211,dispatch@sunrise.demo,4,4.6
+VEND-003,Nivia Sports Gear,FOOTBALL,Harpreet Singh,+91-9876543212,sales@nivia.demo,2,4.9
+VEND-004,PulseTech Electronics,ELECTRONICS,Amitabh Sen,+91-9876543213,support@pulsetech.demo,5,4.2
+VEND-005,Puma Regional Distribution,FOOTWEAR,Sunil Kumar,+91-9876543214,b2b@pumadist.demo,3,4.7
+VEND-999,POS Care Systems (Hardware),POS_HARDWARE,Emergency Desk,+91-9876543299,support@poscare.demo,1,4.9
+
