@@ -1,0 +1,9 @@
+# DEMO DATASET: Punjab Sports Mart - Recent Support Cases
+case_id,timestamp,category,priority,issue_description,status,assigned_to
+CASE-2026-001,2026-10-28 09:15,POS_HARDWARE,P1,Main store checkout registers lost server connection,OPEN,IT_Admin_OnCall
+CASE-2026-002,2026-10-28 11:30,POS_HARDWARE,P2,Card swipe terminal Counter 3 unresponsive to tap/chip,OPEN,Hardware_Support
+CASE-2026-003,2026-10-27 16:45,INVENTORY,P3,SG Cricket bat stock depleted before weekend tournament,RESOLVED,Inventory_Mgr
+CASE-2026-004,2026-10-26 14:10,PRICING,P4,Customer noticed 100 rupee shelf difference on cricket ball,RESOLVED,Store_Associate
+CASE-2026-005,2026-10-25 10:20,REFUND,P2,Customer requested refund for broken shuttlecock barrel,RESOLVED,Store_Associate
+CASE-2026-006,2026-10-24 15:00,QUALITY_COMPLAINT,P2,Repeated complaints on seam tearing for football batch B-22,OPEN,Quality_Team
+
