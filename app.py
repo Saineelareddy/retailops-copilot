@@ -257,6 +257,20 @@ if user_query and (submit_btn or scenario_input):
             else:
                 st.caption("No specific policy citations for this inquiry.")
 
+            # 5. LangGraph Execution Trace & Auditor Loop
+            if result.get("audit_trail"):
+                st.write("")
+                with st.expander("🔍 LangGraph State Transitions & Compliance Audit Trail"):
+                    for step in result["audit_trail"]:
+                        if "REJECTED" in step:
+                            st.error(f"🔄 {step}")
+                        elif "passed" in step.lower() or "verified" in step.lower():
+                            st.success(f"✅ {step}")
+                        elif "guardrail flagged" in step.lower() or "short-circuiting" in step.lower():
+                            st.warning(f"🛡️ {step}")
+                        else:
+                            st.info(f"⚡ {step}")
+
 def render_records_table(records):
     """Renders records as a clean markdown table without requiring pandas."""
     if not records:
