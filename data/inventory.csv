@@ -1,0 +1,11 @@
+# DEMO DATASET: Punjab Sports Mart - Inventory Records
+sku,name,category,stock_quantity,reorder_threshold,list_price,shelf_location,supplier_id
+SKU-CRIC-001,SG Sunny Gold Cricket Bat,CRICKET,2,5,8500.00,Aisle-1-Shelf-B,VEND-001
+SKU-CRIC-002,SS Kashmir Willow Cricket Bat,CRICKET,8,10,2200.00,Aisle-1-Shelf-C,VEND-001
+SKU-BADM-001,Yonex Astrox 77 Badminton Racket,BADMINTON,12,6,3500.00,Aisle-2-Shelf-A,VEND-002
+SKU-FOOT-001,Nivia Storm Football Size 5,FOOTBALL,25,10,899.00,Aisle-3-Shelf-A,VEND-003
+SKU-FOOT-002,Nivia Shin Guard Pro,FOOTBALL,18,8,450.00,Aisle-3-Shelf-B,VEND-003
+SKU-ELEC-001,FitPro Max Smart Sports Band,ELECTRONICS,4,8,2999.00,Display-Counter-1,VEND-004
+SKU-FOOT-003,Puma Velocity Running Shoes Size 9,FOOTWEAR,3,5,4200.00,Shoe-Rack-4,VEND-005
+SKU-TT-001,Stag 3-Star Table Tennis Balls Pack 6,TABLE_TENNIS,45,20,299.00,Aisle-2-Shelf-D,VEND-003
+
