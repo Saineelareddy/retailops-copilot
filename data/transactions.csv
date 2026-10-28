@@ -1,0 +1,8 @@
+# DEMO DATASET: Punjab Sports Mart - POS Receipts & Transactions
+receipt_id,order_id,customer_id,sku,item_name,qty,net_unit_price,total_amount,purchase_date,status,payment_method
+RCPT-2026-101,O-100001,C1001,SKU-BADM-001,Yonex Astrox 77 Badminton Racket,1,3500.00,3500.00,2026-10-23,DELIVERED,UPI
+RCPT-2026-102,O-100002,C1002,SKU-FOOT-003,Puma Velocity Running Shoes Size 9,1,4200.00,4200.00,2026-10-08,DELIVERED,CARD-****-4321
+RCPT-2026-103,O-100003,C1003,SKU-ELEC-001,FitPro Max Smart Sports Band,1,2999.00,2999.00,2026-10-20,DELIVERED,CARD-****-9876
+RCPT-2026-104,O-100004,C1004,SKU-FOOT-001,Nivia Storm Football Size 5,2,850.00,1700.00,2026-10-27,DELIVERED,CASH
+RCPT-2026-105,O-100005,C1005,SKU-CRIC-002,SS Kashmir Willow Cricket Bat,1,2200.00,2200.00,2026-10-26,DELIVERED,UPI
+
