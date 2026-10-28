@@ -1,0 +1,7 @@
+doc_id,title,doc_type,version,effective_from,authority_level,file_name,synthetic
+POL-RET-2026,Customer Return and Refund Policy,regulation,1.2,2026-01-01,1,return_refund_policy.md,N
+POL-PRC-2026,Store Shelf and POS Pricing Policy,regulation,1.0,2026-01-01,1,pricing_policy.md,N
+SOP-HW-2026,POS and Card Reader Outage Standard Operating Procedure,handbook,2.0,2026-02-15,2,hardware_pos_sop.md,N
+POL-VEN-2026,Vendor Reordering and Quality Escalation Policy,handbook,1.1,2026-03-01,2,vendor_sla_policy.md,N
+CIRC-2026-05,Festive Season Return Window Extension Notice,circular,1.0,2026-10-01,2,festive_circular.md,Y
+
