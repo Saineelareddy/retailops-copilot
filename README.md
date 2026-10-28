@@ -42,13 +42,22 @@ The solution prioritizes **simplicity, explainability, and determinism**. Rather
 flowchart TD
     subgraph UI ["🖥️ User Interface Layer (Streamlit)"]
         A["Associate Input / Quick Scenario Buttons"]
-        Z["Live Results: Badges, Citations, Action Steps"]
+        Z["Live Screen: Badges, Citations, Audit Log"]
     end
 
-    subgraph Agents ["🤖 LangGraph Multi-Agent Engine"]
-        B["Triage Agent"]
-        SG{"🛡️ Security Guardrail"}
-        C["Investigation Agent"]
+    subgraph LangGraph ["⚡ LangGraph Dynamic State Graph"]
+        B["1. Triage Agent<br>(Domain & Priority Classification)"]
+        
+        R1{"Conditional Routing 1:<br>Security Check"}
+        GB["Guardrail Block Node<br>(Zero-Exposure Short-Circuit)"]
+        
+        C["2. Investigation Agent<br>(Policy Retrieval & CSV Data Engine)"]
+        
+        CV["3. Compliance Verifier<br>(Auditor & Reflection Agent)"]
+        
+        R2{"Conditional Routing 2:<br>Audit Passed?"}
+        
+        FS["4. Final Synthesis Node<br>(Audit Trace & State Packaging)"]
     end
 
     subgraph Grounding ["🗄️ Grounding & Evidence Layer"]
@@ -58,24 +67,42 @@ flowchart TD
     end
 
     A --> B
-    B --> SG
-    SG -- "Violates PII / Card Request" --> Z
-    SG -- "Safe Query" --> C
+    B --> R1
+    R1 -- "⛔ PII Violation" --> GB --> Z
+    R1 -- "✅ Safe Inquiry" --> C
+    
     C <--> D
     C <--> E
     C <--> F
-    C --> Z
+    
+    C --> CV
+    CV --> R2
+    
+    R2 -- "❌ Policy/Threshold Missed (Retry Loop)" -->|Corrective Feedback| C
+    R2 -- "✅ Verified Compliant" --> FS
+    
+    FS --> Z
 
     style B fill:#1E3A8A,color:#fff,stroke:#3B82F6,stroke-width:2px
     style C fill:#0D9488,color:#fff,stroke:#14B8A6,stroke-width:2px
-    style SG fill:#DC2626,color:#fff,stroke:#EF4444,stroke-width:2px
-    style Z fill:#F8FAFC,color:#000,stroke:#64748B,stroke-width:2px
+    style CV fill:#6366F1,color:#fff,stroke:#4F46E5,stroke-width:2px
+    style GB fill:#DC2626,color:#fff,stroke:#EF4444,stroke-width:2px
+    style FS fill:#10B981,color:#fff,stroke:#059669,stroke-width:2px
+    style R1 fill:#FEF08A,color:#854D0E,stroke:#CA8A04,stroke-width:2px
+    style R2 fill:#FEF08A,color:#854D0E,stroke:#CA8A04,stroke-width:2px
 ```
 
-### Why Only Two Agents?
-- **Triage Agent:** Deterministically identifies the domain (POS, Pricing, Inventory, Refund, Quality) and assigns standard retail priority SLAs (**P1 Critical** down to **P4 Low**).
-- **Investigation Agent:** Evaluates relevant CSV data via deterministic code (never LLM arithmetic) and retrieves official policy clauses.
-- **No Over-Engineering:** A system that is lean, explainable, and 100% grounded scores higher than fragile 7-agent architectures.
+### Why Use LangGraph Here? (Conditional Routing & Self-Correction)
+Rather than a naive linear chain, LangGraph provides critical capabilities that make this system robust and resilient:
+1. **Dynamic Conditional Branching (`add_conditional_edges`):**
+   - **Short-circuiting security threats:** If customer card numbers, CVVs, or prompt injection attempts are detected at triage, execution immediately diverts to the `guardrail_block` node and exits without performing expensive, unnecessary database or policy lookups.
+2. **Reflection & Compliance Auditor (`compliance_verifier`):**
+   - Audits whether the generated output complies with hard business rules:
+     - *Mandatory citations:* Ensures every operational answer cites an official document ID and section.
+     - *Manager approval check:* Ensures refunds exceeding ₹2,000 have the human-in-the-loop sign-off flag.
+     - *Zero-exposure audit:* Confirms no raw 13-16 digit payment card numbers are present.
+3. **Iterative Self-Correction Loop:**
+   - If the Compliance Verifier catches an omission, it loops back to the `investigation_agent` with structured feedback (e.g., *"Refund exceeds ₹2,000 threshold but requires_manager_approval was omitted"*), allowing the agent to self-correct before presenting the result to the user.
 
 ---
 
